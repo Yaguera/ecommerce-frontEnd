@@ -1,5 +1,5 @@
-import HomePage from "./pages/index";
-import { CartProvider } from "./utils/cartContext";
+import HomePage from "./pages/home/page";
+import { CartProvider } from "./context/cartContext";
 
 export default function Home() {
   return (
