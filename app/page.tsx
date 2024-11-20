@@ -1,11 +1,14 @@
-import HomePage from "./pages/home/page";
+
 import { CartProvider } from "./context/cartContext";
+import ProductList from "./components/ProductList";
 
 export default function Home() {
   return (
     <div>
       <CartProvider>
-        <HomePage/>
+        <div >
+          <ProductList/>
+        </div>
       </CartProvider>
     </div>
   );
