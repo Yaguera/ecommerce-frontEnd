@@ -24,10 +24,13 @@ export default function ProductList() {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4 place-items-center">
-      {products.map((product) => (
-        <ProductItem key={product.id} product={product} onAddToCart={addToCart} />
-      ))}
+    <div className="mt-10 max-w-[90%] m-auto">
+        <h1 className="text-3xl text-center uppercase font-bold">Todos os Jogos</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4 place-items-center">
+        {products.map((product) => (
+            <ProductItem key={product.id} product={product} onAddToCart={addToCart} />
+        ))}
+        </div>
     </div>
   );
 }
