@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import api from "../../services/api";
 import axios from "axios";
+import { useAuth } from "@/app/context/AuthContext";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -11,14 +12,17 @@ export default function LoginPage() {
   const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
 
+  const{setUser} = useAuth();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const response = await api.post("/user/login", { email, password });
-      const { token } = response.data;
+      const { token, user } = response.data;
 
       // Salva o token no localStorage (ou cookies, dependendo do uso)
       localStorage.setItem("authToken", token);
+      setUser(user);
 
       // Redireciona o usuário após o login
       router.push("/");

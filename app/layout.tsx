@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import { AuthProvider } from "./context/AuthContext";
 import "./globals.css";
 
 export default function RootLayout({
@@ -9,8 +10,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header/>
-        {children}
+        <AuthProvider>
+          <Header/>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
