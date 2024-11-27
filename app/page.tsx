@@ -1,5 +1,5 @@
 
-import { CartProvider } from "./context/cartContext";
+import { CartProvider } from "./context/CartContext";
 import ProductList from "./components/ProductList";
 
 // import {register} from "swiper/element/bundle";

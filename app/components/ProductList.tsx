@@ -2,12 +2,10 @@
 import { useEffect, useState } from "react";
 import api from "./../services/api";
 import ProductItem from "./../components/ProductItem";
-import { useCart } from "./../context/cartContext";
 import { Product } from "./../utils/types";
 
 export default function ProductList() {
   const [products, setProducts] = useState<Product[]>([]); // Estado inicial como array vazio
-  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -28,7 +26,7 @@ export default function ProductList() {
         <h1 className="text-3xl text-center uppercase font-bold">Todos os Jogos</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4 place-items-center">
         {products.map((product) => (
-            <ProductItem key={product.id} product={product} onAddToCart={addToCart} />
+            <ProductItem key={product.id} product={product} />
         ))}
         </div>
     </div>

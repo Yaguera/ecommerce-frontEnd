@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         const token = localStorage.getItem("authToken");
         if (token) {
           const response = await api.get("/user/profile");
-          setUser(response.data); // Ajuste conforme o formato da resposta
+          setUser(response.data);
         }
       } catch (error) {
         console.log(error)
