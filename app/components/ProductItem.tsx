@@ -23,6 +23,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
           src={product.imageUrl}
           alt={product.nome}
           fill
+          sizes="full"
           className="object-cover rounded-lg"
         />
       </div>

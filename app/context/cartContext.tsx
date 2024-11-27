@@ -20,13 +20,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
 
-    // Carrega o carrinho do Local Storage ao montar o componente
-  useEffect(() => {
-    const storedCart = localStorage.getItem("cart");
-    if (storedCart) {
-      setCart(JSON.parse(storedCart));
-    }
-  }, []);
+
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -36,14 +30,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const addToCart = (product: Product) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
-  
-      console.log("Adicionando produto ao carrinho:");
-      console.log("Produto recebido:", product);
-      console.log("Carrinho atual:", prevCart);
-      console.log(cart)
+
   
       if (existingItem) {
-        console.log("Produto já existe no carrinho, aumentando quantidade.");
         return prevCart.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
@@ -51,7 +40,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         );
       }
   
-      console.log("Produto não existe no carrinho, adicionando como novo item.");
       return [...prevCart, { ...product, quantity: 1 }];
     });
   };

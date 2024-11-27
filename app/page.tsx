@@ -1,5 +1,4 @@
 
-import { CartProvider } from "./context/CartContext";
 import ProductList from "./components/ProductList";
 
 // import {register} from "swiper/element/bundle";
@@ -14,10 +13,10 @@ import Hero from "./components/Hero";
 export default function Home() {
   return (
     <div>
-      <CartProvider>
+ 
           <Hero/>
           <ProductList/>
-      </CartProvider>
+
     </div>
   );
 }

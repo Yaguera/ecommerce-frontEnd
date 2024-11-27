@@ -6,8 +6,10 @@ import { UserRoundIcon, ShoppingCart } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
 
+
 const Header = () => {
   const { user, setUser } = useAuth();
+  
 
   const { cart } = useCart(); // Obtém o carrinho do contexto
 
@@ -28,7 +30,9 @@ const Header = () => {
         <nav className="flex items-center">
           <ul className="flex gap-4 items-center">
             <Link href="pages/cart">
-            <li className="text-black font-semibold flex gap-4 bg-slate-400 p-3 rounded-lg">
+            <li className={`text-black font-semibold flex gap-4 p-3 rounded-lg ${
+                  totalItems > 0 ? "bg-green-600" : "bg-slate-400"
+                }`}>
               <ShoppingCart /> <span id="quantidade" className="font-semibold">
                 {totalItems}
               </span>
