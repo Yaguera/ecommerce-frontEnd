@@ -11,7 +11,7 @@ export default function ProductList() {
     const fetchProducts = async () => {
       try {
         const response = await api.get("/produto/all");
-        console.log("API response:", response.data); // Log para verificar a resposta
+        console.log("API response:", response.data); // Log que verifica a resposta
         setProducts(response.data.produtos || []); // Acessa a chave `produtos`
       } catch (error) {
         console.error("Erro ao buscar produtos:", error);
