@@ -17,7 +17,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, onAddToCart }) => {
       <h2>{product.name}</h2>
       <p>Quantidade: {product.quantidade}</p>
       <button onClick={handleAddToCart} style={{ padding: '8px 16px', background: '#4CAF50', color: '#fff', border: 'none', borderRadius: '4px' }}>
-        Adicionar ao Carrinho
+        Adicionar Ao Carrinho
       </button>
     </div>
   );
